@@ -12,27 +12,27 @@ public class Produto implements Gravavel{
 	private String codigo;
 	private int id;
 
-    public String getDescricao() {
+	public String getDescricao() {
 		return descricao;
 	}
 
-    public void setDescricao(String nome) {
+	public void setDescricao(String nome) {
 		this.descricao = nome;
 	}
 
-    public String getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-    public void setCodigo(String codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
-    public int getId() {
+	public int getId() {
 		return id;
 	}
 
-    public void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -46,7 +46,7 @@ public class Produto implements Gravavel{
 
     @Override
 	public String getRegistro() {
-		
+
 		StringBuffer reg = new StringBuffer();
 		reg.append(this.getId());
 		reg.append(SEPARADOR);
@@ -56,20 +56,20 @@ public class Produto implements Gravavel{
 		reg.append(SEPARADOR);
 		reg.append(this.getValor());
 		reg.append("\n");
-		
+
 		return reg.toString();
 	}
 
-    @Override
+	@Override
 	public void setRegistro(String reg) {
-		StringTokenizer st = new StringTokenizer(reg,SEPARADOR);
+		StringTokenizer st = new StringTokenizer(reg, SEPARADOR);
 		this.setId(Integer.parseInt(st.nextToken()));
 		this.setCodigo(st.nextToken());
 		this.setDescricao(st.nextToken());
 		this.setValor(Float.parseFloat(st.nextToken()));
 	}
 
-    @Override
+	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", cpf=" + codigo + ", nome=" + descricao + ", valor=" + valor + "]";
 	}

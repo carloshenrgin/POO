@@ -22,7 +22,7 @@ public class ProdutoDAO extends CadastroGenerico<negocio.produto.Produto> {
 				return c;
 			}
 		}
-		throw new Exception("Cliente com chave "+chave+" n�o encontrado!");
+		throw new Exception("Produto com chave "+chave+" nao encontrado!");
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class ProdutoDAO extends CadastroGenerico<negocio.produto.Produto> {
 				return i;
 			}
 		}
-		throw new Exception("Cliente com "+t.getCodigo()+" n�o encontrado!");
+		throw new Exception("Produto com "+t.getCodigo()+" nao encontrado!");
 	}
 
 
