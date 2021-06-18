@@ -7,6 +7,7 @@ import dados.Gravavel;
 public class Produto implements Gravavel{
     static final String SEPARADOR = "#";
 	
+	private float valor;
 	private String descricao;
 	private String codigo;
 	private int id;
@@ -35,6 +36,14 @@ public class Produto implements Gravavel{
 		this.id = id;
 	}
 
+	public Float getValor() {
+		return valor;
+	}
+
+	public void setValor(Float valor) {
+		this.valor = valor;
+	}
+
     @Override
 	public String getRegistro() {
 		
@@ -44,6 +53,8 @@ public class Produto implements Gravavel{
 		reg.append(this.getCodigo());
 		reg.append(SEPARADOR);
 		reg.append(this.getDescricao());
+		reg.append(SEPARADOR);
+		reg.append(this.getValor());
 		reg.append("\n");
 		
 		return reg.toString();
@@ -55,10 +66,11 @@ public class Produto implements Gravavel{
 		this.setId(Integer.parseInt(st.nextToken()));
 		this.setCodigo(st.nextToken());
 		this.setDescricao(st.nextToken());
+		this.setValor(Float.parseFloat(st.nextToken()));
 	}
 
     @Override
 	public String toString() {
-		return "Cliente [id=" + id +", cpf=" + codigo + ", nome=" + descricao +  "]";
+		return "Produto [id=" + id + ", cpf=" + codigo + ", nome=" + descricao + ", valor=" + valor + "]";
 	}
 }

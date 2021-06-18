@@ -1,9 +1,9 @@
-package negocio.cliente;
+package negocio.fornecedor;
 
 import java.util.StringTokenizer;
 import dados.Gravavel;
 
-public class Cliente implements Gravavel {
+public class Fornecedor implements Gravavel {
     static final String SEPARADOR = "#";
 
     private int id;
@@ -60,7 +60,7 @@ public class Cliente implements Gravavel {
 
     @Override
     public String toString() {
-        return "Cliente [cpf=" + cpf + ", id=" + id + ", nome=" + nome + "]";
+        return "Fornecedor [cpf=" + cpf + ", id=" + id + ", nome=" + nome + "]";
     }
 
     

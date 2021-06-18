@@ -1,18 +1,18 @@
-package negocio.caderneta;
+package negocio.estoque;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import dados.Gravavel;
-import negocio.cliente.Cliente;
+import negocio.fornecedor.Fornecedor;
 import negocio.produto.Produto;
 
-public class Caderneta implements Gravavel {
+public class Estoque implements Gravavel {
     static final String SEPARADOR = "#";
 
     private int id;
-    private String nomeCliente;
-    private String produtos;
+    private String nomeFornecedor;
+    private String produto;
 
     public int getId() {
         return id;
@@ -22,20 +22,20 @@ public class Caderneta implements Gravavel {
         this.id = id;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getNomeFornecedor() {
+        return nomeFornecedor;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setNomeFornecedor(String nomeFornecedor) {
+        this.nomeFornecedor = nomeFornecedor;
     }
 
-    public String getProdutos() {
-        return produtos;
+    public String getProduto() {
+        return produto;
     }
 
-    public void setProdutos(String produtos) {
-        this.produtos = produtos;
+    public void setProduto(String produto) {
+        this.produto = produto;
     }
 
     @Override
@@ -43,9 +43,9 @@ public class Caderneta implements Gravavel {
         StringBuffer reg = new StringBuffer();
         reg.append(this.getId());
         reg.append(SEPARADOR);
-        reg.append(this.getNomeCliente());
+        reg.append(this.getNomeFornecedor());
         reg.append(SEPARADOR);
-        reg.append(this.getProdutos());
+        reg.append(this.getProduto());
         reg.append("\n");
 
         return reg.toString();
@@ -55,8 +55,8 @@ public class Caderneta implements Gravavel {
     public void setRegistro(String reg){
         StringTokenizer st = new StringTokenizer(reg,SEPARADOR);
 		this.setId(Integer.parseInt(st.nextToken()));
-		this.setNomeCliente(st.nextToken());
-		this.setProdutos(st.nextToken());
+		this.setNomeFornecedor(st.nextToken());
+		this.setProduto(st.nextToken());
     }
 
 
@@ -64,7 +64,7 @@ public class Caderneta implements Gravavel {
 
     @Override
     public String toString() {
-        return "Caderneta [id=" + id + ", nomeCliente=" + nomeCliente + ", produtos=" + produtos + "]";
+        return "Estoque [id=" + id + ", nomeFornecedor=" + nomeFornecedor + ", produto=" + produto + "]";
     }
 
 }

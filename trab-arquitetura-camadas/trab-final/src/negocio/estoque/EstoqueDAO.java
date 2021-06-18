@@ -1,4 +1,4 @@
-package negocio.caderneta;
+package negocio.estoque;
 
 import dados.CadastroGenerico;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import dados.CadastroGenerico;
 import dados.Gravavel;
 import dados.RepositorioGenericoTXT;
 
-public class CadernetaDAO extends CadastroGenerico<negocio.caderneta.Caderneta>{
+public class EstoqueDAO extends CadastroGenerico<negocio.estoque.Estoque>{
     static private int cont;
 
     public int getNextId() {
@@ -15,10 +15,10 @@ public class CadernetaDAO extends CadastroGenerico<negocio.caderneta.Caderneta>{
 	}
 
     @Override
-    public Caderneta busca(String chave) throws Exception{
+    public Estoque busca(String chave) throws Exception{
         for (int i = 0; i < this.lista.size(); i++) {
-			Caderneta c = lista.get(i);
-			if (c.getNomeCliente().equals(chave)){
+			Estoque c = lista.get(i);
+			if (c.getNomeFornecedor().equals(chave)){
 				return c;
 			}
 		}
@@ -26,19 +26,19 @@ public class CadernetaDAO extends CadastroGenerico<negocio.caderneta.Caderneta>{
     }
 
     @Override
-	public int buscaPosicao(Caderneta t) throws Exception {
+	public int buscaPosicao(Estoque t) throws Exception {
 		for (int i = 0; i < this.lista.size(); i++) {
-			Caderneta c = lista.get(i);
+			Estoque c = lista.get(i);
 			if (c == t){
 				return i;
 			}
 		}
-		throw new Exception("Caderneta pertencente a "+t.getNomeCliente()+" nao encontrada!");
+		throw new Exception("Estoque pertencente a "+t.getNomeFornecedor()+" nao encontrada!");
 	}
 
-    public CadernetaDAO() {
-		RepositorioGenericoTXT<Caderneta> r = new RepositorioCadernetaTXT();
-		r.setNomeArquivo("CADERNETA.TXT");
+    public EstoqueDAO() {
+		RepositorioGenericoTXT<Estoque> r = new RepositorioEstoqueTXT();
+		r.setNomeArquivo("ESTOQUE.TXT");
 		this.setRepo(r);
 	}
 
