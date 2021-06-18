@@ -23,14 +23,6 @@ public class Cliente implements Gravavel {
 
     }
 
-    public static boolean isNumeric(String str) { 
-        try {  
-          Integer.parseInt(str);  
-          return true;
-        } catch(NumberFormatException e){  
-          return false;  
-        }  
-    }
 
     public int getId() {
         return id;
