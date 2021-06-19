@@ -7,7 +7,7 @@ public interface IProduto {
 
 	public Produto buscarProduto(String codigo) throws Exception;
 	
-	public void excluirProduto(String codigo) throws Exception;
+	public void excluirProduto(Produto p) throws Exception;
 	
 	public void atualizarProduto(Produto c) throws Exception;
 }

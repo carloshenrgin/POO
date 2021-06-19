@@ -44,7 +44,7 @@ public abstract class CadastroGenerico<T extends Gravavel> {
 			return this.lista;
 		}
 		else
-			throw new Exception("Repositorio n�o configurado!");
+			throw new Exception("Repositorio nao configurado!");
 			
 	}
     
@@ -52,6 +52,6 @@ public abstract class CadastroGenerico<T extends Gravavel> {
 		if (repo != null)
 			repo.salvar(this.lista);
 		else
-			throw new Exception("Repositorio n�o configurado!");
+			throw new Exception("Repositorio nao configurado!");
 	}
 }

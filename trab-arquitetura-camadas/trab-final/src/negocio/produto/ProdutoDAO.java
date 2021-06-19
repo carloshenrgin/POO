@@ -33,7 +33,7 @@ public class ProdutoDAO extends CadastroGenerico<negocio.produto.Produto> {
 				return i;
 			}
 		}
-		throw new Exception("Produto com "+t.getCodigo()+" nao encontrado!");
+		throw new Exception("Produto com "+ t.getCodigo()+" nao encontrado!");
 	}
 
 

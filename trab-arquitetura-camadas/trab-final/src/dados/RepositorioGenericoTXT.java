@@ -53,12 +53,10 @@ abstract public class RepositorioGenericoTXT <T extends Gravavel> {
 			lista.add(o);
 		}
 		fi.close();
-		// TODO Auto-generated method stub
 		return lista;
 	}
 
 	public void salvar(ArrayList<T> lista) throws IOException {
-		// TODO Auto-generated method stub
 
 		FileOutputStream fo = new FileOutputStream(f);
 		for (Gravavel g : lista) {
