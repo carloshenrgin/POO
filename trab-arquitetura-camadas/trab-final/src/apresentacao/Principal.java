@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import negocio.IFachadaSistema;
 import negocio.Sistema;
-import negocio.cliente.Cliente;
 import negocio.fornecedor.Fornecedor;
 
 public class Principal {
@@ -38,7 +37,7 @@ public class Principal {
 			
 			System.out.println(e.getMessage());
 		}
-
+		tecl.close();
 		System.out.println("FIM DO PROGRAMA");
 	}
 

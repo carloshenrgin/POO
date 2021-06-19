@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import negocio.IFachadaSistema;
-import negocio.ISistema;
+import negocio.Sistema;
 import negocio.produto.Produto;
 
 import javax.swing.JLabel;
@@ -71,7 +71,7 @@ public class TelaProdutos extends JFrame {
 	public TelaProdutos() {
 
 		try {
-			fc = ISistema.getFachada();
+			fc = Sistema.getFachada();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			erro(e.getMessage());
@@ -145,8 +145,9 @@ public class TelaProdutos extends JFrame {
 				p.setDescricao(tfDescricao.getText());
 				try {
 					fc.cadastrarProduto(p);
+					sucesso("Inclusao bem sucedida");
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+
 					erro(e.getMessage());
 				}
 				tfCodigo.setText("");
@@ -172,11 +173,9 @@ public class TelaProdutos extends JFrame {
 		// Excluir
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				p = new Produto();
-				p.setCodigo(tfCodigo.getText());
-				p.setDescricao(tfDescricao.getText());
 				try {
-					fc.excluirProduto(p);
+					fc.excluirProduto(tfDescricao.getText());
+					sucesso("Exclusao bem sucedida");
 				} catch (Exception e) {
 
 					erro(e.getMessage());
@@ -194,6 +193,7 @@ public class TelaProdutos extends JFrame {
 				p.setDescricao(tfDescricao.getText());
 				try {
 					fc.atualizarProduto(p);
+					sucesso("Atualização bem sucedida");
 				} catch (Exception e) {
 
 					erro(e.getMessage());

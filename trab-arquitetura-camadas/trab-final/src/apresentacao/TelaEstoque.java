@@ -1,6 +1,5 @@
 package apresentacao;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,10 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import negocio.IFachadaSistema;
-import negocio.ISistema;
+import negocio.Sistema;
 import negocio.estoque.Estoque;
 import negocio.estoque.EstoqueDAO;
-import negocio.produto.Produto;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -74,7 +72,7 @@ public class TelaEstoque extends JFrame {
 	public TelaEstoque() {
 
 		try {
-			fc = ISistema.getFachada();
+			fc = Sistema.getFachada();
 		} catch (Exception e) {
 
 			erro(e.getMessage());
@@ -148,6 +146,7 @@ public class TelaEstoque extends JFrame {
 				p.setProduto(tfDescricao.getText());
 				try {
 					fc.cadastrarEstoque(p);
+					sucesso("Cadastrado com sucesso");
 				} catch (Exception e) {
 
 					erro(e.getMessage());
@@ -161,7 +160,7 @@ public class TelaEstoque extends JFrame {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					Estoque c = fc.buscarForn(tfCodigo.getText());
+					Estoque c = fc.buscarEstoque(tfCodigo.getText());
 					sucesso(c.getRegistro());
 				} catch (Exception e) {
 
@@ -172,14 +171,12 @@ public class TelaEstoque extends JFrame {
 			}
 		});
 
-		//Excluir
+		// Excluir
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				p = new Estoque();
-				p.setNomeFornecedor(tfCodigo.getText());
-				p.setProduto(tfDescricao.getText());
 				try {
-					fc.excluirEstoque(p);
+					fc.excluirEstoque(tfCodigo.getText());
+					sucesso("Exclusao Sucedida");
 				} catch (Exception e) {
 
 					erro(e.getMessage());
@@ -189,7 +186,7 @@ public class TelaEstoque extends JFrame {
 			}
 		});
 
-		//Atualizar
+		// Atualizar
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				p = new Estoque();
@@ -205,8 +202,6 @@ public class TelaEstoque extends JFrame {
 				tfDescricao.setText("");
 			}
 		});
-	
-	
 
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
