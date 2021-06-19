@@ -1,5 +1,5 @@
 package negocio;
 
-public class IFachadaSistema {
+public interface IFachadaSistema extends IEstoque, IFornecedor, IProduto{
     
 }
