@@ -3,13 +3,11 @@ package negocio;
 import negocio.estoque.Estoque;
 
 public interface IEstoque {
-    void cadastrarEstoque(Estoque e);
+    void cadastrarEstoque(Estoque e) throws Exception;
 
-    public Estoque buscarForn(String fornecedor);
+    public Estoque buscarEstoque(String fornecedor) throws Exception;
 
-    public Estoque buscarProd(String produto);
+    public void excluirEstoque(String fornecedor) throws Exception;
 
-    public void excluirEstoque(Estoque e);
-
-    public void atualizarEstoque(Estoque e);
+    public void atualizarEstoque(Estoque e) throws Exception;
 }
